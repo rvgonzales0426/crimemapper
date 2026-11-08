@@ -1,0 +1,12 @@
+# Minimal Supabase CLI config: only what `supabase functions deploy` needs.
+# Deploy with: bunx supabase functions deploy <name> --project-ref <ref>
+project_id = "crimemapper"
+
+# Both functions require a valid JWT at the gateway. embed-incidents then
+# accepts only the service role; case-assistant only signed-in users whose role
+# includes /investigations.
+[functions.embed-incidents]
+verify_jwt = true
+
+[functions.case-assistant]
+verify_jwt = true
